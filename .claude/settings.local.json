@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nSet up complete learning curriculum for Neural Network from Scratch\n\nAdded comprehensive learning materials:\n- LEARNING_GUIDE.md: 18-week structured curriculum from Python to CUDA\n- WEEK1_EXERCISE.md: First assignment - Matrix class implementation\n- RESOURCES.md: Videos, books, papers, and reference materials\n- STUDY_PLAN.md: Weekly progress tracker and journal templates\n- QUICK_REFERENCE.md: Formulas, code snippets, and debugging tips\n- ROADMAP.txt: Visual roadmap of the entire learning journey\n\nCreated project structure:\n- python/core/matrix.py: Starter template for first exercise\n- python/tests/test_matrix.py: Comprehensive test suite\n- Project organized into python/, c/, and cuda/ directories\n\nLearning path covers 6 phases:\n1. Foundation \\(Pure Python\\) - Weeks 1-3\n2. Optimization \\(NumPy\\) - Weeks 4-5\n3. C Implementation - Weeks 6-8\n4. CUDA Basics - Weeks 9-11\n5. Complete Neural Network - Weeks 12-16\n6. Visualization & Debugging - Weeks 17-18\n\nGoal: Build C+CUDA neural network library for MNIST digit recognition,\nunderstanding every detail from linear algebra to GPU computing.\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(python test_matrix.py:*)"
     ]
   }
 }

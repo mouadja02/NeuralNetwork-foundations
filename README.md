@@ -165,9 +165,9 @@ I'm your teacher in this journey. For each exercise, I provide:
 
 Track your progress by checking off completed exercises:
 
-- [ ] Exercise 1.1: Matrix Operations
-- [ ] Exercise 1.2: Activation Functions
-- [ ] Exercise 1.3: Loss Functions
+- [x] Exercise 1.1: Matrix Operations ✅
+- [ ] Exercise 1.2: Activation Functions ← **Current**
+- [ ] Exercise 1.3: Loss Functions ← **Current**
 - [ ] Exercise 1.4: Progress Bar
 - [ ] Exercise 1.5: First Neural Network Layer
 - [ ] Checkpoint 1: XOR Network
@@ -177,13 +177,15 @@ Track your progress by checking off completed exercises:
 
 ## 🎯 Current Focus
 
-**Week 1, Exercise 1.1**: Implement Matrix class from scratch
+**Week 2, Exercises 1.2 & 1.3**: Activation Functions & Loss Functions
 
 **Files to work on**:
-- `python/core/matrix.py` - Your implementation
-- `python/tests/test_matrix.py` - Test cases
+- `python/core/activations.py` - Sigmoid, ReLU, tanh, softmax
+- `python/core/loss.py` - MSE, cross-entropy
+- `python/tests/test_activations.py` - Test cases
+- `python/tests/test_loss.py` - Test cases
 
-**Goal**: Understand matrix operations by implementing them yourself
+**Goal**: Implement the mathematical functions that make neural networks work
 
 ## 🆘 Getting Help
 
@@ -209,10 +211,10 @@ This is a personal learning project. Use it however helps you learn!
 
 ## 🚦 Next Steps
 
-1. Open [WEEK1_EXERCISE.md](WEEK1_EXERCISE.md)
-2. Start implementing `python/core/matrix.py`
-3. Run tests with `python python/tests/test_matrix.py`
-4. Show your code for feedback!
+1. ✅ ~~Week 1 Complete!~~ Matrix operations implemented
+2. Open [WEEK2_EXERCISE.md](WEEK2_EXERCISE.md)
+3. Implement `python/core/activations.py` and `python/core/loss.py`
+4. Run tests and show your code for feedback!
 
 ---
 

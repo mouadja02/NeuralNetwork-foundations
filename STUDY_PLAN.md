@@ -50,32 +50,45 @@ Build a Matrix class from scratch and understand fundamental matrix operations.
 ## 📊 Weekly Progress Log
 
 ### Week 1: Matrix Operations
-**Status**: 🏗️ In Progress
-**Started**: _____
-**Completed**: _____
+**Status**: ✅ Completed
+**Started**: 2026-01-11
+**Completed**: 2026-01-11
 
 **What I learned**:
--
--
+- Matrix operations from scratch (no NumPy)
+- Why inner dimensions must match for multiplication
+- Matrix multiplication is O(n³)
+- Why matrix multiply is not commutative
+- Transpose reverses multiplication order
 
 **Challenges faced**:
--
+- Initial implementation of subtraction was overcomplicated
+- __repr__ had side effects (printing instead of returning string)
 
-**Questions for teacher**:
--
+**Questions answered**:
+- Why matrix dimensions must match
+- Computational complexity
+- Non-commutativity of matrix multiplication
+- Transpose identity
 
-**Time spent**: ___ hours
+**Time spent**: ~4-6 hours
 
 ---
 
 ### Week 2: Activation & Loss Functions
-**Status**: ⏳ Not Started
-**Started**: _____
+**Status**: 🏗️ In Progress
+**Started**: 2026-01-11
 **Completed**: _____
 
 **Exercises**:
-- [ ] Ex 1.2: Activation Functions
-- [ ] Ex 1.3: Loss Functions
+- [ ] Ex 1.2: Activation Functions (sigmoid, ReLU, tanh, softmax)
+- [ ] Ex 1.3: Loss Functions (MSE, BCE, CCE)
+
+**What I'm learning**:
+- Why non-linearity is crucial
+- Different activation functions and when to use them
+- How to measure prediction errors
+- Numerical stability tricks
 
 ---
 
@@ -95,9 +108,9 @@ Build a Matrix class from scratch and understand fundamental matrix operations.
 
 ### Phase 1: Foundation (Weeks 1-3) - Pure Python
 **Status**: 🏗️ In Progress
-**Completion**: 0/6 exercises
+**Completion**: 1/6 exercises
 
-- [ ] Exercise 1.1: Matrix Operations
+- [x] Exercise 1.1: Matrix Operations ✅
 - [ ] Exercise 1.2: Activation Functions
 - [ ] Exercise 1.3: Loss Functions
 - [ ] Exercise 1.4: Progress Bar
