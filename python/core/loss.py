@@ -39,7 +39,7 @@ def mean_squared_error(y_true, y_pred):
         cols, rows = y_pred.cols, y_pred.rows
         for i in range(rows):
             for j in range(cols):
-                sum += (y_pred[i][j] - y_true[i][j]) ** 2 
+                sum += (y_pred.data[i][j] - y_true.data[i][j]) ** 2
         return (1/(rows * cols)) * sum 
     elif isinstance(y_true, list) and isinstance(y_pred, list):
         if len(y_true) != len(y_pred):
@@ -67,12 +67,12 @@ def mse_derivative(y_true, y_pred):
     if isinstance(y_true, Matrix) and isinstance(y_pred, Matrix):
         if y_true.shape() != y_pred.shape():
             raise ValueError("y_pred and y_true must have the same dimensions to calculate the MSE.")
-        result = 0
+        result = []
         cols, rows = y_pred.cols, y_pred.rows
         for i in range(rows):
             row = []
             for j in range(cols):
-                row.append((2/(rows * cols)) * (y_pred[i][j] - y_true[i][j])) 
+                row.append((2/(rows * cols)) * (y_pred.data[i][j] - y_true.data[i][j]))
             result.append(row)
         return Matrix(result)
     elif isinstance(y_true, list) and isinstance(y_pred, list):
@@ -108,8 +108,8 @@ def binary_cross_entropy(y_true, y_pred, epsilon=1e-15):
         bce(1, 0.9) ≈ 0.105  (good prediction, low loss)
         bce(1, 0.1) ≈ 2.303  (bad prediction, high loss)
     """
-    # TODO: Implement
-    pass
+    return -((y_true * math.log(y_pred + epsilon)) + ((1 - y_true) * math.log(1 - y_pred + epsilon)))
+    
 
 
 def binary_cross_entropy_derivative(y_true, y_pred, epsilon=1e-15):
@@ -120,8 +120,7 @@ def binary_cross_entropy_derivative(y_true, y_pred, epsilon=1e-15):
 
     When combined with sigmoid, this simplifies nicely!
     """
-    # TODO: Implement
-    pass
+    return ((y_pred - y_true) / (y_pred * (1 - y_pred)))
 
 
 def categorical_cross_entropy(y_true, y_pred, epsilon=1e-15):
@@ -147,9 +146,17 @@ def categorical_cross_entropy(y_true, y_pred, epsilon=1e-15):
         Prediction: [0.1, 0.8, 0.1]  → loss ≈ 0.22  (good)
         Prediction: [0.4, 0.1, 0.5]  → loss ≈ 2.30  (bad)
     """
-    # TODO: Implement
-    # Hint: Only non-zero y_true values contribute to the sum
-    pass
+    if isinstance(y_true, list) and isinstance(y_pred, list):
+        if len(y_true) != len(y_pred):
+            raise ValueError("y_true and y_pred dimensions don't match !")
+        sum = 0
+        n = len(y_true)
+        for i in range(n):
+            if y_true[i] != 0:
+                sum += y_true[i] * math.log(y_pred[i] + epsilon)
+        return -sum
+    else:
+        raise TypeError("Input must be a list")
 
 
 def categorical_cross_entropy_derivative(y_true, y_pred, epsilon=1e-15):
@@ -160,8 +167,16 @@ def categorical_cross_entropy_derivative(y_true, y_pred, epsilon=1e-15):
 
     When combined with softmax, simplifies to: ŷ - y_true
     """
-    # TODO: Implement
-    pass
+    if isinstance(y_true, list) and isinstance(y_pred, list):
+        if len(y_true) != len(y_pred):
+            raise ValueError("y_true and y_pred dimensions don't match !")
+        result = []
+        n = len(y_true)
+        for i in range(n):
+            result.append(-y_true[i] / y_pred[i])
+        return result
+    else:
+        raise TypeError("Input must be a list")
 
 
 # Utility function for later
@@ -180,5 +195,4 @@ def one_hot_encode(label, num_classes):
         one_hot_encode(2, 5) → [0, 0, 1, 0, 0]
         one_hot_encode(0, 3) → [1, 0, 0]
     """
-    # TODO: Implement
-    pass
+    return [ 1 if i == label else 0 for i in range(num_classes) ]
